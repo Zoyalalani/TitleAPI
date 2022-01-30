@@ -36,9 +36,17 @@ namespace TitleAPI.Models.Context
           .HasMany(c => c.OtherNames)
           .WithOne(e => e.Title);
 
-           modelBuilder.Entity<Title>()
-          .HasMany(c => c.TitleParticipants)
-          .WithOne(e => e.Title);
+            modelBuilder.Entity<Title>()
+           .HasMany(c => c.TitleParticipants)
+           .WithOne(e => e.Title);
+
+            modelBuilder.Entity<Genre>()
+           .HasMany(c => c.TitleGenres)
+           .WithOne(e => e.Genre);
+
+            modelBuilder.Entity<Participant>()
+           .HasMany(c => c.TitleParticipants)
+           .WithOne(e => e.Participant);
         }
     }
 }

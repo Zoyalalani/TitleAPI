@@ -8,12 +8,13 @@ namespace TitleAPI.Models
 {
     public class OtherName
     {
+        [Key]
+        public int Id { get; set; }
         public int TitleId { get; set; }
         public string TitleNameLanguage { get; set; }
         public string TitleNameType { get; set; }
         public string TitleNameSortable { get; set; }
         public string TitleName { get; set; }
-        public int? Id { get; set; }
         public virtual Title Title { get; set; }
 
     }

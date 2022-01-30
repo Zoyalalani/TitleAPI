@@ -14,5 +14,7 @@ namespace TitleAPI.Models
         public string RoleType { get; set; }
         public bool? IsOnScreen { get; set; }
         public Title Title { get; init; }
+        public virtual Participant Participant { get; set; }
+
     }
 }

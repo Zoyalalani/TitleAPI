@@ -23,16 +23,17 @@ namespace TitleAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Title>>> GetTitle()
         {
-            return await _context.Title.Include(title => title.TitleGenres)
-            .Include(a => a.Awards).Include(o => o.OtherNames).Include(s => s.StoryLines).Include(p => p.TitleParticipants).ToListAsync();
+            return await _context.Title.ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Title>> GetTitle(int id)
         {
 
-            var title = await _context.Title
+            var title = await _context.Title.Include(a => a.Awards)
                 .Include(o => o.OtherNames).Include(s => s.StoryLines).Include(p => p.TitleParticipants)
+                .Include(g => g.TitleGenres).ThenInclude(tg => tg.Genre)
+                .Include(p => p.TitleParticipants).ThenInclude(tp => tp.Participant)
                 .FirstOrDefaultAsync(e => e.TitleId == id);
 
             if (title == null)

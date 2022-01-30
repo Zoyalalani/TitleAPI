@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
 namespace TitleAPI.Models
@@ -10,5 +11,7 @@ namespace TitleAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string ParticipantType { get; set; }
+        public virtual ICollection<TitleParticipant> TitleParticipants { get; set; }
+
     }
 }

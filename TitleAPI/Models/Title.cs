@@ -21,8 +21,5 @@ namespace TitleAPI.Models
         public virtual ICollection<OtherName> OtherNames { get; set; }
         public virtual ICollection<TitleParticipant> TitleParticipants { get; set; }
 
-
-
-
     }
 }
