@@ -14,7 +14,7 @@ namespace TitleAPI.Models
         public int AwardYear { get; set; }
         public string AwardCompany { get; set; }
         [Column("Award")]
-        public string _Award { get; set; }
+        public string AwardCategory { get; set; }
         public virtual Title Title { get; set; }
 
     }
