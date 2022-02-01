@@ -21,7 +21,7 @@ namespace TitleAPI.Controllers
 
         // GET: api/Titles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Title>>> GetTitle()
+        public async Task<IEnumerable<Title>> GetAllTitles()
         {
             return await _context.Title.ToListAsync();
         }
